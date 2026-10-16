@@ -2,7 +2,7 @@ package com.reto.customers.repository;
 
 import com.reto.customers.entity.Customer;
 import com.reto.customers.projection.CustomerView;
-import com.reto.customers.projection.MonthlyBirthCountView;
+import com.reto.customers.repository.projection.MonthlyBirthCountView;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

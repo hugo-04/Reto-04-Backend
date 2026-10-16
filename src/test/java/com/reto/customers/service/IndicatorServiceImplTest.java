@@ -1,8 +1,8 @@
 package com.reto.customers.service;
 
 import com.reto.customers.dto.response.BirthIndicatorsResponse;
-import com.reto.customers.projection.MonthlyBirthCountView;
 import com.reto.customers.repository.CustomerRepository;
+import com.reto.customers.repository.projection.MonthlyBirthCountView;
 import com.reto.customers.service.impl.IndicatorServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

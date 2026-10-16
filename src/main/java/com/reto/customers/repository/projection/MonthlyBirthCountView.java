@@ -1,4 +1,4 @@
-package com.reto.customers.projection;
+package com.reto.customers.repository.projection;
 
 /**
  * Proyección del conteo de clientes agrupado por año y mes de nacimiento.
