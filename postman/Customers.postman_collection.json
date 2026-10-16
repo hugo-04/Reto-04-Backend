@@ -1,0 +1,68 @@
+{
+  "info": {
+    "name": "Customers Service",
+    "description": "Colección para consumir el microservicio de clientes. Variable baseUrl: http://localhost:8080",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" }
+  ],
+  "item": [
+    {
+      "name": "Crear cliente",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Ana\",\n  \"lastName\": \"Pérez\",\n  \"email\": \"ana.perez@mail.com\",\n  \"dni\": \"12345678\",\n  \"birthDate\": \"1990-05-20\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/api/customers", "host": ["{{baseUrl}}"], "path": ["api", "customers"] }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": { "type": "text/javascript", "exec": ["pm.test('201 Created', () => pm.response.to.have.status(201));"] }
+        }
+      ]
+    },
+    {
+      "name": "Listar clientes (sin filtros)",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/api/customers", "host": ["{{baseUrl}}"], "path": ["api", "customers"] }
+      }
+    },
+    {
+      "name": "Buscar cliente por DNI",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/customers?dni=12345678",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "customers"],
+          "query": [{ "key": "dni", "value": "12345678" }]
+        }
+      }
+    },
+    {
+      "name": "Buscar cliente por email",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/customers?email=ana.perez@mail.com",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "customers"],
+          "query": [{ "key": "email", "value": "ana.perez@mail.com" }]
+        }
+      }
+    },
+    {
+      "name": "Indicadores de natalidad",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/api/customers/indicators", "host": ["{{baseUrl}}"], "path": ["api", "customers", "indicators"] }
+      }
+    }
+  ]
+}
